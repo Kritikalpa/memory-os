@@ -43,14 +43,11 @@ The system follows a multi-stage pipeline for recording and retrieving personal 
 
 ## 📂 Project Structure
 
-| File                | Role |
-| :------------------ | :--- |
-| `extraction.py`     | LLM-based structured data extraction (`MemoryData` schema via Pydantic AI) |
-| `embeddings.py`     | Master pipeline: calls extraction, builds rich context string, generates 3072-dim vector |
-| `database.py`       | Neo4j driver wrapper; handles schema setup, vector index creation, and memory insertion |
-| `scoring.py`        | Temporal-Emotional re-ranking algorithm (`calculate_memory_score`) |
-| `retrieval.py`      | Hybrid search (vector query + Cypher graph traversal), re-ranking, and LLM synthesis |
+| File                | Role                                                                                        |
+| :------------------ | :------------------------------------------------------------------------------------------ |
+| `extraction.py`     | LLM-based structured data extraction (`MemoryData` schema via Pydantic AI)                  |
+| `embeddings.py`     | Master pipeline: calls extraction, builds rich context string, generates 3072-dim vector    |
+| `database.py`       | Neo4j driver wrapper; handles schema setup, vector index creation, and memory insertion     |
+| `scoring.py`        | Temporal-Emotional re-ranking algorithm (`calculate_memory_score`)                          |
+| `retrieval.py`      | Hybrid search (vector query + Cypher graph traversal), re-ranking, and LLM synthesis        |
 | `insight_engine.py` | Weekly background job: fetches memories, extracts patterns, writes `Insight` nodes to graph |
-
----
-# memory-os
